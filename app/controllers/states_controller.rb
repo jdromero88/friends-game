@@ -14,6 +14,16 @@ class StatesController < ApplicationController
     end
   end
 
+  def search
+    byebug
+    # @state = State.find_by(name: params['name'])
+    # if @state
+    #   render json: StateSerializer.new(@state).to_serialized_json
+    # else
+    #   render json: {message: error}
+    # end
+  end
+
   def create
     @state = State.create!(code: params['code'], name: params['name'])
     if @state
@@ -33,6 +43,6 @@ class StatesController < ApplicationController
   end
 
   def destroy
-
+    render json: {messsage: error}
   end
 end
