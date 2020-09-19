@@ -15,13 +15,13 @@ class StatesController < ApplicationController
   end
 
   def search
-    byebug
-    # @state = State.find_by(name: params['name'])
-    # if @state
-    #   render json: StateSerializer.new(@state).to_serialized_json
-    # else
-    #   render json: {message: error}
-    # end
+    # byebug
+    @state = State.find_by(name: params['name'])
+    if @state
+      render json: StateSerializer.new(@state).to_serialized_json
+    else
+      render json: {message: 'typo'}
+    end
   end
 
   def create
